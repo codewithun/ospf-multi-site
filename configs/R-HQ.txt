@@ -1,0 +1,23 @@
+
+! Router: R-HQ
+! Role: Headquarters
+! OSPF Process: 1, Area: 0
+
+hostname R-HQ
+
+interface GigabitEthernet0/0
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+
+interface GigabitEthernet0/1
+ ip address 10.0.0.1 255.255.255.252
+ no shutdown
+
+interface GigabitEthernet0/2
+ ip address 10.0.0.5 255.255.255.252
+ no shutdown
+
+router ospf 1
+ network 192.168.10.0 0.0.0.255 area 0
+ network 10.0.0.0 0.0.0.3 area 0
+ network 10.0.0.4 0.0.0.3 area 0
